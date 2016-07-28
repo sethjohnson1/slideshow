@@ -12,7 +12,7 @@ if (empty($image)) foreach (glob('slideshow_imgs/*.jpg') as $key=>$filename) $im
 <script type="text/javascript" src="jquery-easing.js"></script>
 <style>
 body{
-	background-color:#aa9d8d;
+	background-color:#ded9d5;
 }
 #hand{
 	position:absolute;
