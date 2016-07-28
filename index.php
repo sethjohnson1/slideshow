@@ -89,7 +89,10 @@ body{
 						bottom: "-148px",
 						right:"314px"
 						}, 5, function() {
-							//console.log(slidenumber);
+							//console.log(slidenumber);						
+							//do the claw thing, one out of 100
+							if (Math.floor((Math.random() * 100) + 1)==83) $("#hand").attr("src","claw_hand.png");
+							else $("#hand").attr("src","pointing-finger.png");
 							//notice NO parenthesis in setTimeout or it just calls the function immediately
 							setTimeout($.animateHand,5000);
 						});
