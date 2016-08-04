@@ -1,4 +1,7 @@
 <?
+/***
+Turn OFF Wide Viewport tag in KioWare
+***/
 //get the images
 $image=array();
 foreach (glob('slideshow_imgs/*.JPG') as $key=>$filename) $image[$key]=$filename;
@@ -23,6 +26,10 @@ body{
 }
 #startover{
 	display:none;
+	position: relative;
+	top:-65px;
+	z-index:10;
+	
 }
 .wgwa-btn{
   background: #981e32;
@@ -63,6 +70,9 @@ body{
   cursor: pointer;
   color: #bd4f19;
 }
+.spacing{
+	padding-top:30px
+}
 </style>
     <script>
 	//add this to jQuery namespace and it can be called globally
@@ -73,7 +83,7 @@ body{
 		$("#hand").show();
 		$( "#hand" ).animate({
 			opacity: 0.55
-			,bottom: "-70px",
+			,bottom: "-25px",
 		}, 2000,"easeOutQuint", function() {
 			//first animation done
 			$( "#hand" ).animate({
@@ -91,7 +101,7 @@ body{
 						}, 5, function() {
 							//console.log(slidenumber);						
 							//do the claw thing, one out of 100
-							if (Math.floor((Math.random() * 100) + 1)==83) $("#hand").attr("src","claw_hand.png");
+							if (Math.floor((Math.random() * 2) + 100)==83) $("#hand").attr("src","claw_hand.png");
 							else $("#hand").attr("src","pointing-finger.png");
 							//notice NO parenthesis in setTimeout or it just calls the function immediately
 							setTimeout($.animateHand,5000);
@@ -106,8 +116,8 @@ body{
 	  
       $('#slides').slidesjs({
 		  //use CSS as well
-        width: 1656,
-        height: 1080,
+        width: 1645,
+        height: 1050,
         navigation: {
 			active: false,
 			effect: "slide"
@@ -158,8 +168,8 @@ body{
 </head>
 <body>
 <!-- The width of the container is the width of the image divided by the nabi width (1656/1920) -->
-
-  <div class="container" style="width:82%; margin: 0 auto">
+<div class="spacing"></div>
+  <div class="container" style="width:77%; margin: 0 auto">
     <div id="slides">
 	  <?foreach ($image as $k=>$img):?>
 	  <img src="<?=$img?>" alt="Slideshow item #<?=$k?>" id="img_<?=$k?>" />
